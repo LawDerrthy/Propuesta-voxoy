@@ -1,0 +1,70 @@
+<Window x:Class="InventarioApp.Views.VerificacionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Verificación de Email - Sistema de Inventarios" 
+        Height="350" 
+        Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Título -->
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Verificación de Email" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+            <TextBlock x:Name="lblMensajeVerificacion" 
+                       FontSize="14" 
+                       HorizontalAlignment="Center"
+                       Foreground="#FF666666"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Margin="20,0"/>
+        </StackPanel>
+        
+        <!-- Formulario de Verificación -->
+        <StackPanel Grid.Row="1" Margin="40,0">
+            <Label Content="Código de Verificación:"/>
+            <TextBox x:Name="txtCodigo" 
+                     Text="{Binding Codigo, UpdateSourceTrigger=PropertyChanged}"
+                     FontSize="16"
+                     TextAlignment="Center"
+                     MaxLength="6"/>
+            
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        Margin="0,20,0,0">
+                <Button Content="Verificar" 
+                        Click="btnVerificar_Click"
+                        Width="120"/>
+                <Button Content="Reenviar Código" 
+                        Click="btnReenviar_Click"
+                        Width="120"
+                        Style="{StaticResource SecondaryButton}"/>
+            </StackPanel>
+            
+            <TextBlock x:Name="lblMensaje" 
+                       Foreground="Red" 
+                       HorizontalAlignment="Center"
+                       Margin="0,10,0,0"
+                       TextWrapping="Wrap"
+                       FontSize="12"/>
+        </StackPanel>
+        
+        <!-- Pie de página -->
+        <StackPanel Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <TextBlock Text="© 2024 Sistema de Inventarios" 
+                       FontSize="10" 
+                       Foreground="#FF999999"
+                       Margin="0,0,0,10"/>
+        </StackPanel>
+    </Grid>
+</Window>
